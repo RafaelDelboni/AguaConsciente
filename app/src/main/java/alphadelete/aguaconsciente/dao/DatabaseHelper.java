@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
-    private static final String DATABASE_NAME = "alphadelete.firstapp.db";
+    private static final String DATABASE_NAME = "alphadelete.aguaconsciente.db";
     private static final int DATABASE_VERSION = 1;
 
     public DatabaseHelper(Context context) {

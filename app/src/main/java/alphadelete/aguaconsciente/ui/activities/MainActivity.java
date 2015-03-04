@@ -13,7 +13,7 @@ import alphadelete.aguaconsciente.models.TypeItem;
 import alphadelete.aguaconsciente.ui.adapters.TypeItemArrayViewAdapter;
 
 public class MainActivity extends BaseActivity {
-    public final static String EXTRA_MESSAGE = "alphadelete.firstapp.MESSAGE";
+    public final static String EXTRA_MESSAGE = "alphadelete.aguaconsciente.MESSAGE";
     private TypeDS typeDatasource;
     private TypeItemArrayViewAdapter ca;
     private List<TypeItem> allTimers;
