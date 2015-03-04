@@ -5,7 +5,7 @@ import java.util.Date;
 
 public class StringFormat {
 
-    public static String millisToString(long millisTimer){
+    public static String millisToString(float millisTimer){
         // Calc the Hours/Minutes/Seconds of the millisecond
         int real_seconds = (int) (millisTimer / 1000);
         int real_minutes = real_seconds / 60;
@@ -30,7 +30,7 @@ public class StringFormat {
         return dtFormat.format(dateTimer);
     }
 
-    public static String literToString (float itemLiter, long itemMillis){
+    public static String literToString (float itemLiter, float itemMillis){
         // Calc the liter vs timer
         float liter = (itemLiter / 60) * ((float) itemMillis / 1000);
         // Return formated String

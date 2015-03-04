@@ -111,11 +111,11 @@ public class TimerDS {
     }
 
     private TimerItem cursorToTimer(Cursor cursor) {
-        //long itemId, int itemTypeId, long itemMillis, float itemLiter, Date itemDate
+        //long itemId, int itemTypeId, float itemMillis, float itemLiter, Date itemDate
         return new TimerItem(
             cursor.getLong(0),
             cursor.getInt(1),
-            cursor.getLong(2),
+            cursor.getFloat(2),
             cursor.getFloat(3),
             new Date(cursor.getLong(4))
         );

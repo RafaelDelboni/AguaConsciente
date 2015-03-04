@@ -35,7 +35,7 @@ public class TypeItemArrayViewAdapter extends RecyclerView.Adapter<TypeItemArray
     public void onBindViewHolder(TypeViewHolder typeViewHolder, int position) {
         TypeItem typeItem = typeItemList.get(position);
 
-        typeViewHolder.vLiter.setText(String.valueOf(typeItem.getLiter()) + " " + mContext.getString(R.string.msg_liters_per_minute));
+        typeViewHolder.vLiter.setText(String.valueOf(getTypeTotal(typeItem.getId())) + " " + mContext.getString(R.string.msg_spend_liters));
         typeViewHolder.vTitle.setText(typeItem.getDesc());
 
         typeViewHolder.setClickListener(new TypeViewHolder.ClickListener() {
@@ -48,6 +48,19 @@ public class TypeItemArrayViewAdapter extends RecyclerView.Adapter<TypeItemArray
 
             }
         });
+    }
+
+    private String getTypeTotal(long typeId){
+        // Open connection to timer database
+        typeDatasource = new TypeDS(mContext);
+        typeDatasource.open();
+
+        float total = typeDatasource.sumType(typeId);
+
+        // Close connection to timer database
+        typeDatasource.close();
+
+        return String.format("%.2f", total);
     }
 
     @Override

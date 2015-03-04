@@ -5,12 +5,12 @@ import java.sql.Date;
 public class TimerItem implements Comparable<TimerItem>  {
     private long id;
     private long typeId;
-    private long millis;
+    private float millis;
     private float liter;
     private Date date;
 
     // constructor
-    public TimerItem(long itemId, long itemTypeId, long itemMillis, float itemLiter, Date itemDate) {
+    public TimerItem(long itemId, long itemTypeId, float itemMillis, float itemLiter, Date itemDate) {
         this.id = itemId;
         this.typeId = itemTypeId;
         this.millis = itemMillis;
@@ -26,7 +26,7 @@ public class TimerItem implements Comparable<TimerItem>  {
         return this.typeId;
     }
 
-    public long getMillis() {
+    public float getMillis() {
         return this.millis;
     }
 

@@ -16,7 +16,7 @@ public class TimerTable {
         "create table " + TABLE_TIMERS + "("
             + TIMER_ID + " integer primary key autoincrement, "
             + TIMER_TYPE_ID + " integer not null, "
-            + TIMER_MILLIS + " long not null, "
+            + TIMER_MILLIS + " float not null, "
             + TIMER_LITERS + " float not null, "
             + TIMER_DATE + " long not null);";
 

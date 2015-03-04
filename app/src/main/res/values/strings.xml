@@ -10,6 +10,7 @@
     <string name="msg_type">Tipo de Consumo</string>
     <string name="msg_liter">Litros</string>
     <string name="msg_liters_per_minute">Litros por minuto</string>
+    <string name="msg_spend_liters">litros gastos</string>
     <string name="msg_box_del_title">Excluir</string>
     <string name="msg_box_edit_title">Editar</string>
     <string name="msg_box_message">Este item será excluído</string>

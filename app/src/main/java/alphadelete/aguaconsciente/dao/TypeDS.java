@@ -87,6 +87,24 @@ public class TypeDS {
         return types;
     }
 
+    public float sumType(long typeId){
+        float total;
+
+        Cursor cursor = database.rawQuery(
+            "SELECT SUM((" + TimerTable.TIMER_LITERS + "/ 60" + ")*(" + TimerTable.TIMER_MILLIS + "/ 1000" + ")) " +
+            "FROM " + TimerTable.TABLE_TIMERS + " WHERE " + TimerTable.TIMER_TYPE_ID + " = " + typeId + ";",
+            null
+        );
+        if(cursor.moveToFirst())
+            total = cursor.getFloat (0);
+        else
+            total = 0;
+        // make sure to close the cursor
+        cursor.close();
+
+        return total;
+    }
+
     public TypeItem getType(long id) {
         Cursor cursor = database.query(TypeTable.TABLE_TYPES,
                 allColumns, TypeTable.TYPE_ID + " = " + id,
