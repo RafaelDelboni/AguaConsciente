@@ -1,0 +1,18 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_timer_viewer"
+    android:tag="tag_fragment_timer_viewer"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    tools:context="alphadelete.aguaconsciente.ui.fragments.TimerViewerFragment">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/timerEditList"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</RelativeLayout>

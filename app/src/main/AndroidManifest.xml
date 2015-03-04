@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    package="alphadelete.aguaconsciente" >
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="alphadelete.aguaconsciente.ui.activities.MainActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="alphadelete.aguaconsciente.ui.activities.TimerActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/action_timer"
+            android:screenOrientation="portrait"
+            android:parentActivityName="alphadelete.aguaconsciente.ui.activities.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="alphadelete.aguaconsciente.ui.activities.MainActivity" />
+        </activity>
+        <activity
+            android:name="alphadelete.aguaconsciente.ui.activities.ConfigActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/action_settings"
+            android:parentActivityName="alphadelete.aguaconsciente.ui.activities.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="alphadelete.aguaconsciente.ui.activities.MainActivity" />
+        </activity>
+    </application>
+
+</manifest>

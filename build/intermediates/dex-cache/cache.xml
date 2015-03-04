@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/rafaeldelboni/AndroidStudioProjects/AguaConsciente/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/21.0.3/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="00b0b7233e1ec64acebfac40d4983d32d4712426">
+        <dex dex="/Users/rafaeldelboni/AndroidStudioProjects/AguaConsciente/app/build/intermediates/pre-dexed/debug/classes-f43f8a3ad81beecf446fccb01775406f3b3ae9d1.jar" />
+    </item>
+    <item
+        jar="/Users/rafaeldelboni/.gradle/caches/modules-2/files-2.1/com.nineoldandroids/library/2.4.0/e9b63380f3a242dbdbf103a2355ad7e43bad17cb/library-2.4.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb">
+        <dex dex="/Users/rafaeldelboni/AndroidStudioProjects/AguaConsciente/app/build/intermediates/pre-dexed/debug/library-2.4.0-b34bc485dfa08eeddc121a9a8b3641dead1f8ded.jar" />
+    </item>
+    <item
+        jar="/Users/rafaeldelboni/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/21.0.3/support-annotations-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
+        <dex dex="/Users/rafaeldelboni/AndroidStudioProjects/AguaConsciente/app/build/intermediates/pre-dexed/debug/support-annotations-21.0.3-d91c99e6a5827b2c59e49ec4fab7c0fe03890ca8.jar" />
+    </item>
+    <item
+        jar="/Users/rafaeldelboni/AndroidStudioProjects/AguaConsciente/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
+        <dex dex="/Users/rafaeldelboni/AndroidStudioProjects/AguaConsciente/app/build/intermediates/pre-dexed/debug/classes-5399f86789522b39c4bec7fdb773ddee6566bce0.jar" />
+    </item>
+    <item
+        jar="/Users/rafaeldelboni/AndroidStudioProjects/AguaConsciente/app/build/intermediates/exploded-aar/com.jpardogo.materialtabstrip/library/1.0.9/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="ed2ab55be78d5d54ac9060d70d65a4573ae3d2ec">
+        <dex dex="/Users/rafaeldelboni/AndroidStudioProjects/AguaConsciente/app/build/intermediates/pre-dexed/debug/classes-da2156640654ac9c53a3c5c19f6ccd1c85942ae7.jar" />
+    </item>
+    <item
+        jar="/Users/rafaeldelboni/AndroidStudioProjects/AguaConsciente/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/21.0.3/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="4b8945fc23a7461c6fdde15753456d64b0a9358b">
+        <dex dex="/Users/rafaeldelboni/AndroidStudioProjects/AguaConsciente/app/build/intermediates/pre-dexed/debug/classes-4085bf1e128d78c96ba86b4ae3fb1d8ed802bd19.jar" />
+    </item>
+    <item
+        jar="/Users/rafaeldelboni/AndroidStudioProjects/AguaConsciente/app/build/intermediates/exploded-aar/com.melnykov/floatingactionbutton/1.2.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="65620ba5e576dcec2c86efa440b00d042a27383b">
+        <dex dex="/Users/rafaeldelboni/AndroidStudioProjects/AguaConsciente/app/build/intermediates/pre-dexed/debug/classes-11f5c54474b76d60b43f38ec9cb0021daebc6a04.jar" />
+    </item>
+    <item
+        jar="/Users/rafaeldelboni/AndroidStudioProjects/AguaConsciente/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
+        <dex dex="/Users/rafaeldelboni/AndroidStudioProjects/AguaConsciente/app/build/intermediates/pre-dexed/debug/classes-13ca3d42d6095fdc9db1f0d8a64e414274dc7cf9.jar" />
+    </item>
+    <item
+        jar="/Users/rafaeldelboni/AndroidStudioProjects/AguaConsciente/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/libs/internal_impl-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
+        <dex dex="/Users/rafaeldelboni/AndroidStudioProjects/AguaConsciente/app/build/intermediates/pre-dexed/debug/internal_impl-21.0.3-219e5ca39055993a5b6893d32eafb24208d5afb8.jar" />
+    </item>
+
+</items>

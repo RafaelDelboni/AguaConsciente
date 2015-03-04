@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="about_title">Sobre</string>
+
+    <string name="about_title_dev">Desenvolvedor</string>
+    <string name="about_author_dev">AlphaDelete</string>
+    <string name="about_content_dev">
+        Qualquer dúvida ou sugestão entre em contato:
+
+        \n\nhttp://www.twitter.com/alphadelete
+        \n\nalphadelete@gmail.com
+    </string>
+
+    <string name="about_title_soft">Uso e garantia</string>
+    <string name="about_author_soft">Água Consciente - Copyright 2015</string>
+    <string name="about_content_soft">
+        Os calculos são dados aproximados baseados nas informações abaixo e devem ser utilizados
+        apenas para fins informativos. O desenvolvedor não se responsabiliza por diferenças entre os
+        dados coletados e o consumo real.
+
+        \n\nOs dados iniciais deste software são informações fornecidas pela SABESP.
+
+        \n\nEscovar os dentes
+        \n\nSe uma pessoa escova os dentes em 5 minutos com a torneira não muito aberta, gasta 12 litros de água.
+        No entanto, se molhar a escova e fechar a torneira enquanto escova os dentes e, ainda,
+        enxaguar a boca com um copo de água, consegue economizar mais de 11,5 litros de água.
+        (2,4 litros por minuto no pior caso).
+        \n\nLavando louça
+        \n\nNuma casa, lavando louça com a torneira meio aberta em 15 minutos, são utilizados 117 litros de água.
+        Com economia o consumo pode chegar a 20 litros.
+        (7,8 litros por minuto no pior caso).
+        \n\nLavando roupa no tanque
+        \n\nNo tanque, com a torneira aberta por 15 minutos, o gasto de água pode chegar a 279 litros.
+        O melhor é deixar acumular roupa, colocar a água no tanque para ensaboar e manter a torneira fechada.
+        (18 litros por minuto no pior caso).
+        \n\nHora do banho
+        \n\nBanho de ducha por 15 minutos, com o registro meio aberto, consome 135 litros de água.
+        Se fechamos o registro, ao se ensaboar, e reduzimos o tempo para 5 minutos, o consumo cai para 45 litros.
+        (9 litros por minuto no pior caso).
+
+        \n\nFonte: http://site.sabesp.com.br/site/interna/Default.aspx?secaoId=140
+    </string>
+</resources>
