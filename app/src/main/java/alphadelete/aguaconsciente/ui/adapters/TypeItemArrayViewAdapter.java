@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
@@ -35,6 +36,7 @@ public class TypeItemArrayViewAdapter extends RecyclerView.Adapter<TypeItemArray
     public void onBindViewHolder(TypeViewHolder typeViewHolder, int position) {
         TypeItem typeItem = typeItemList.get(position);
 
+        typeViewHolder.vImage.setImageResource(getImage(typeItem.getId()));
         typeViewHolder.vLiter.setText(String.valueOf(getTypeTotal(typeItem.getId())) + " " + mContext.getString(R.string.msg_spend_liters));
         typeViewHolder.vTitle.setText(typeItem.getDesc());
 
@@ -48,6 +50,30 @@ public class TypeItemArrayViewAdapter extends RecyclerView.Adapter<TypeItemArray
 
             }
         });
+    }
+
+    private int getImage(long typeId) {
+        int imgId;
+
+        switch ((int)typeId) {
+            case 1:
+                imgId = R.drawable.ic_tooth_brush;
+                break;
+            case 2:
+                imgId = R.drawable.ic_wash_dishes;
+                break;
+            case 3:
+                imgId = R.drawable.ic_wash_machine;
+                break;
+            case 4:
+                imgId = R.drawable.ic_bath_shower;
+                break;
+            default:
+                imgId = R.mipmap.ic_launcher;
+                break;
+        }
+
+        return imgId;
     }
 
     private String getTypeTotal(long typeId){
@@ -85,6 +111,7 @@ public class TypeItemArrayViewAdapter extends RecyclerView.Adapter<TypeItemArray
     public static class TypeViewHolder extends RecyclerView.ViewHolder
             implements View.OnClickListener, View.OnLongClickListener{
 
+        protected ImageView vImage;
         protected TextView vLiter;
         protected TextView vTitle;
 
@@ -96,6 +123,7 @@ public class TypeItemArrayViewAdapter extends RecyclerView.Adapter<TypeItemArray
             v.setOnClickListener(this);
             v.setOnLongClickListener(this);
 
+            vImage = (ImageView) v.findViewById(R.id.imageView);
             vLiter =  (TextView) v.findViewById(R.id.txtLiter);
             vTitle = (TextView) v.findViewById(R.id.title);
         }

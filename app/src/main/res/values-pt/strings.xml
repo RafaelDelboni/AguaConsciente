@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Agua Consciente</string>
+    <string name="action_settings">Configurações</string>
+    <string name="action_timer">Consumo</string>
+    <string name="action_reports">Relatórios</string>
+    <string name="action_about">Sobre</string>
+
+    <string name="msg_type">Tipo de Consumo</string>
+    <string name="msg_liter">Litros</string>
+    <string name="msg_liters_per_minute">Litros por minuto</string>
+    <string name="msg_spend_liters">litros gastos</string>
+    <string name="msg_box_del_title">Excluir</string>
+    <string name="msg_box_edit_title">Editar</string>
+    <string name="msg_box_message">Este item será excluído</string>
+    <string name="msg_box_yes">OK</string>
+    <string name="msg_box_no">Cancelar</string>
+
+    <string name="tab_timer_record">Medir Consumo</string>
+    <string name="tab_timer_saved_recordings">Histórico de Uso</string>
+
+    <string name="timer_prompt">Aperte o botão para medir o consumo</string>
+
+    <string name="title_activity_display_message">My Message</string>
+    <string name="title_activity_config">Config</string>
+
+    <string name="toast_recording_start">Consumo iniciado</string>
+    <string name="toast_recording_finish">Consumo salvo</string>
+
+    <string name="record_in_progress">litros gastos até o momento</string>
+
+    <string name="type_1">Escovar dentes</string>
+    <string name="type_2">Lavar louça</string>
+    <string name="type_3">Lavar roupa</string>
+    <string name="type_4">Tomar banho</string>
+
+</resources>

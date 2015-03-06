@@ -1,7 +1,9 @@
 package alphadelete.aguaconsciente.dao;
 
+import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
+import alphadelete.aguaconsciente.R;
 
 public class TypeTable {
     public static final String TABLE_TYPES = "types";
@@ -39,31 +41,30 @@ public class TypeTable {
     (9 litros por minuto no pior caso).
      */
 
-    // Database initial data
-    private static final String TABLE_INSERT_1 =
-        "insert into " + TABLE_TYPES +
-            " (" + TYPE_ID + "," + TYPE_DESC + "," + TYPE_LITERS + "," + TYPE_CUSTOM + ") " +
-                "values (1, 'Escovar dentes', 2.4, 'N');";
-
-    private static final String TABLE_INSERT_2 =
-        "insert into " + TABLE_TYPES +
-            " (" + TYPE_ID + "," + TYPE_DESC + "," + TYPE_LITERS + "," + TYPE_CUSTOM + ") " +
-                "values (2, 'Lavar louça', 7.8, 'N');";
-
-    private static final String TABLE_INSERT_3 =
-        "insert into " + TABLE_TYPES +
-            " (" + TYPE_ID + "," + TYPE_DESC + "," + TYPE_LITERS + "," + TYPE_CUSTOM + ") " +
-                "values (3, 'Lavar roupa', 18, 'N');";
-
-    private static final String TABLE_INSERT_4 =
-        "insert into " + TABLE_TYPES +
-            " (" + TYPE_ID + "," + TYPE_DESC + "," + TYPE_LITERS + "," + TYPE_CUSTOM + ") " +
-                "values (4, 'Tomar banho', 9, 'N');";
-
-
-    public static void onCreate(SQLiteDatabase database) {
+    public static void onCreate(SQLiteDatabase database, Context context) {
         // Create table
         database.execSQL(TABLE_CREATE);
+
+        // Database initial data
+        String TABLE_INSERT_1 =
+                "insert into " + TABLE_TYPES +
+                        " (" + TYPE_ID + "," + TYPE_DESC + "," + TYPE_LITERS + "," + TYPE_CUSTOM + ") " +
+                        "values (1, '" + context.getString(R.string.type_1) + "', 2.4, 'N');";
+
+        String TABLE_INSERT_2 =
+                "insert into " + TABLE_TYPES +
+                        " (" + TYPE_ID + "," + TYPE_DESC + "," + TYPE_LITERS + "," + TYPE_CUSTOM + ") " +
+                        "values (2, '" + context.getString(R.string.type_2) + "', 7.8, 'N');";
+
+        String TABLE_INSERT_3 =
+                "insert into " + TABLE_TYPES +
+                        " (" + TYPE_ID + "," + TYPE_DESC + "," + TYPE_LITERS + "," + TYPE_CUSTOM + ") " +
+                        "values (3, '" + context.getString(R.string.type_3) + "', 18, 'N');";
+
+        String TABLE_INSERT_4 =
+                "insert into " + TABLE_TYPES +
+                        " (" + TYPE_ID + "," + TYPE_DESC + "," + TYPE_LITERS + "," + TYPE_CUSTOM + ") " +
+                        "values (4, '" + context.getString(R.string.type_4) + "', 9, 'N');";
 
         // Insert initial data
         String[] statements = new String[]{
@@ -78,11 +79,11 @@ public class TypeTable {
     }
 
     public static void onUpgrade(SQLiteDatabase database, int oldVersion,
-                                 int newVersion) {
+                                 int newVersion, Context context) {
         Log.w(TimerTable.class.getName(), "Upgrading database from version "
                 + oldVersion + " to " + newVersion
                 + ", which will destroy all old data");
         database.execSQL("DROP TABLE IF EXISTS " + TABLE_TYPES);
-        onCreate(database);
+        onCreate(database, context);
     }
 }
