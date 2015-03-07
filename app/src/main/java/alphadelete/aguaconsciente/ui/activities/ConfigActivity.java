@@ -15,7 +15,7 @@ import alphadelete.aguaconsciente.dao.TypeDS;
 import alphadelete.aguaconsciente.models.TypeItem;
 
 public class ConfigActivity extends BaseParentActivity {
-    private ArrayList<TypeItem> resultList = new ArrayList<TypeItem>() ;
+    List<TypeItem> allTimers;
     private TypeDS typeDatasource;
     private TypeItemArrayEditAdapter ca;
 
@@ -42,10 +42,6 @@ public class ConfigActivity extends BaseParentActivity {
             });
         }
 
-        // Open connection to database
-        typeDatasource = new TypeDS(this);
-        typeDatasource.open();
-
         // Define RecyclerView LayoutManager
         RecyclerView recList = (RecyclerView) findViewById(R.id.cardList);
         recList.setHasFixedSize(true);
@@ -53,24 +49,39 @@ public class ConfigActivity extends BaseParentActivity {
         llm.setOrientation(LinearLayoutManager.VERTICAL);
         recList.setLayoutManager(llm);
 
-        // Select and insert into list of previous timer results
-        // ID, Type (Timer), Date (Saved), Liter (Per Minute), Milliseconds (Of use)
-        List<TypeItem> allTimers = typeDatasource.getType();
-        // For each Timer in list, add to ListView
-        for(TypeItem timer : allTimers) {
-            resultList.add(timer);
-        }
+        // Get Timers list from Database
+        allTimers = listTimers();
 
-        if (resultList.size() > 0) {
+        if (allTimers.size() > 0) {
             // Set and Fill ListView
             ca = new TypeItemArrayEditAdapter(this, allTimers);
             recList.setAdapter(ca);
-
         }
+    }
 
-        // Close database
+    private List<TypeItem> listTimers(){
+        List<TypeItem> _allTimers;
+
+        // Open connection to database
+        typeDatasource = new TypeDS(this);
+        typeDatasource.open();
+
+        //allTimers.clear();
+        _allTimers = typeDatasource.getType();
+
+        // Close connection to timer database
         typeDatasource.close();
 
+        return _allTimers;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        // Clear and Refresh the grid
+        allTimers.clear();
+        allTimers.addAll(listTimers());
+        ca.notifyDataSetChanged();
     }
 
 }

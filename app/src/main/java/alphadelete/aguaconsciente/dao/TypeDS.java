@@ -9,10 +9,12 @@ import android.database.sqlite.SQLiteDatabase;
 import java.util.ArrayList;
 import java.util.List;
 
+import alphadelete.aguaconsciente.R;
 import alphadelete.aguaconsciente.models.TypeItem;
 
 public class TypeDS {
     // Database fields
+    private Context context;
     private SQLiteDatabase database;
     private DatabaseHelper dbHelper;
     private String[] allColumns = {
@@ -23,6 +25,7 @@ public class TypeDS {
     };
 
     public TypeDS(Context context) {
+        this.context = context;
         dbHelper = new DatabaseHelper(context);
     }
 
@@ -68,6 +71,36 @@ public class TypeDS {
         System.out.println("Type update with id: " + id);
         database.update(TypeTable.TABLE_TYPES, values, TypeTable.TYPE_ID
                 + " = " + id, null);
+    }
+
+    public void updateLocaleTypes() {
+
+        String type_1 = context.getString(R.string.type_1);
+        String type_2 = context.getString(R.string.type_2);
+        String type_3 = context.getString(R.string.type_3);
+        String type_4 = context.getString(R.string.type_4);
+
+        ContentValues values = new ContentValues();
+        values.put(TypeTable.TYPE_DESC, type_1);
+        database.update(TypeTable.TABLE_TYPES, values, TypeTable.TYPE_ID
+                + " = " + 1, null);
+
+        values = new ContentValues();
+        values.put(TypeTable.TYPE_DESC, type_2);
+        database.update(TypeTable.TABLE_TYPES, values, TypeTable.TYPE_ID
+                + " = " + 2, null);
+
+        values = new ContentValues();
+        values.put(TypeTable.TYPE_DESC, type_3);
+        database.update(TypeTable.TABLE_TYPES, values, TypeTable.TYPE_ID
+                + " = " + 3, null);
+
+        values = new ContentValues();
+        values.put(TypeTable.TYPE_DESC, type_4);
+        database.update(TypeTable.TABLE_TYPES, values, TypeTable.TYPE_ID
+                + " = " + 4, null);
+
+        System.out.println("Update locales types");
     }
 
     public List<TypeItem> getType() {

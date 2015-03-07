@@ -8,6 +8,12 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+        <receiver android:name=".utils.LocaleBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.LOCALE_CHANGED">
+                </action>
+            </intent-filter>
+        </receiver>
         <activity
             android:name="alphadelete.aguaconsciente.ui.activities.MainActivity"
             android:configChanges="orientation|keyboardHidden|screenSize" >

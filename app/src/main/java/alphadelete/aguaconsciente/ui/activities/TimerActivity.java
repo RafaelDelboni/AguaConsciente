@@ -24,6 +24,7 @@ public class TimerActivity extends BaseParentActivity {
     private ViewPager pager;
 
     private TypeDS typeDatasource;
+    private long typeID;
     private TypeItem activityType;
 
     @Override
@@ -58,12 +59,10 @@ public class TimerActivity extends BaseParentActivity {
         // Get the message from the intent
         Intent intent = getIntent();
         String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
+        typeID = Long.parseLong(message);
 
         // Set the Timer Type
-        getTimerType(Long.parseLong(message));
-
-        // Set the MainActivity title
-        this.setTitle(activityType.getDesc());
+        getTimerType(typeID);
     }
 
     public class MyAdapter extends FragmentPagerAdapter {
@@ -107,6 +106,17 @@ public class TimerActivity extends BaseParentActivity {
 
         // Close connection to timer database
         typeDatasource.close();
+
+        // Set the MainActivity title
+        this.setTitle(activityType.getDesc());
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        // Refresh screen data
+        getTimerType(typeID);
     }
 
     /*

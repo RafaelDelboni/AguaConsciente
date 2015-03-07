@@ -69,6 +69,4 @@ public class BaseActivity extends ActionBarActivity {
         AboutFragment aboutFragment = new AboutFragment();
         aboutFragment.show(getSupportFragmentManager().beginTransaction(), "dialog_about");
     }
-
-
 }
