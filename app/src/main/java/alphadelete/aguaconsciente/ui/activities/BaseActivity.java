@@ -27,9 +27,6 @@ public class BaseActivity extends ActionBarActivity {
         String name = this.getClass().getSimpleName();
 
         switch (item.getItemId()) {
-            case R.id.action_timer:
-                openTimer(name);
-                return true;
             case R.id.action_reports:
                 openReports(name);
                 return true;
@@ -44,16 +41,12 @@ public class BaseActivity extends ActionBarActivity {
         }
     }
 
-    public void openTimer(String previousName) {
-        // Do something in response to button
-        if (!previousName.equals("MainActivity")) {
-            Intent intent = new Intent(this, MainActivity.class);
-            startActivity(intent);
-        }
-    }
-
     public void openReports(String previousName) {
         // Do something in response to button
+        if (!previousName.equals("ReportsActivity")) {
+            Intent intent = new Intent(this, ReportsActivity.class);
+            startActivity(intent);
+        }
     }
 
     public void openConfig(String previousName) {

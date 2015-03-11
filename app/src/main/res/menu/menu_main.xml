@@ -4,12 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
         tools:context=".MainActivity"
 >
-    <!-- Timers, should appear as action button -->
-    <item android:id="@+id/action_timer"
-        android:icon="@drawable/ic_timer_set"
-        android:title="@string/action_timer"
-        app:showAsAction="ifRoom" />
-    <!-- Search, should appear as action button -->
+    <!-- Reports, should appear as action button -->
     <item android:id="@+id/action_reports"
         android:icon="@drawable/ic_reports"
         android:title="@string/action_reports"

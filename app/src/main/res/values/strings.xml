@@ -19,11 +19,10 @@
 
     <string name="tab_timer_record">Measure</string>
     <string name="tab_timer_saved_recordings">History</string>
+    <string name="tab_reports_total">Total</string>
+    <string name="tab_reports_last_12">Last 12 months</string>
 
     <string name="timer_prompt">Tap to measure</string>
-
-    <string name="title_activity_display_message">My Message</string>
-    <string name="title_activity_config">Config</string>
 
     <string name="toast_recording_start">Measure started</string>
     <string name="toast_recording_finish">Measure saved</string>
@@ -34,6 +33,5 @@
     <string name="type_2">Wash dishes</string>
     <string name="type_3">Wash clothes</string>
     <string name="type_4">Take a shower</string>
-
 
 </resources>

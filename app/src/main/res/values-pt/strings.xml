@@ -19,11 +19,10 @@
 
     <string name="tab_timer_record">Medir Consumo</string>
     <string name="tab_timer_saved_recordings">Histórico de Uso</string>
+    <string name="tab_reports_total">Total</string>
+    <string name="tab_reports_last_12">Últimos 12 meses</string>
 
     <string name="timer_prompt">Aperte o botão para medir o consumo</string>
-
-    <string name="title_activity_display_message">My Message</string>
-    <string name="title_activity_config">Config</string>
 
     <string name="toast_recording_start">Consumo iniciado</string>
     <string name="toast_recording_finish">Consumo salvo</string>
