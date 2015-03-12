@@ -6,10 +6,12 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 
+import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.List;
 
 import alphadelete.aguaconsciente.R;
+import alphadelete.aguaconsciente.models.SumTypeItem;
 import alphadelete.aguaconsciente.models.TypeItem;
 
 public class TypeDS {
@@ -120,7 +122,88 @@ public class TypeDS {
         return types;
     }
 
-    public float sumType(long typeId){
+    public List<SumTypeItem> getSumTypeTotal(long dateIni, long dateEnd) {
+        List<SumTypeItem> types = new ArrayList<SumTypeItem>();
+
+        Cursor cursor = database.rawQuery(
+                MessageFormat.format(
+                        "SELECT " +
+                            "TP.{0}, " +
+                            "TP.{1}, " +
+                            "SUM((TM.{2}/ 60)*(TM.{3}/ 1000)) AS litters " +
+                        "FROM {5} TP LEFT JOIN {4} TM ON " +
+                            "TM.{6} = TP.{0} AND " +
+                            "TM.{7} >= " + dateIni + " AND " +
+                            "TM.{7} <= " + dateEnd + " " +
+                        "GROUP BY " +
+                            "TP.{0}, " +
+                            "TP.{1} " +
+                        "ORDER BY " +
+                            "TP.{0};",
+
+                        TypeTable.TYPE_ID,       //0
+                        TypeTable.TYPE_DESC,     //1
+                        TimerTable.TIMER_LITERS, //2
+                        TimerTable.TIMER_MILLIS, //3
+                        TimerTable.TABLE_TIMERS, //4
+                        TypeTable.TABLE_TYPES,   //5
+                        TimerTable.TIMER_TYPE_ID,//6
+                        TimerTable.TIMER_DATE    //7
+                )
+                ,null
+        );
+
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()) {
+            SumTypeItem type = cursorToSumType(cursor);
+            types.add(type);
+            cursor.moveToNext();
+        }
+        // make sure to close the cursor
+        cursor.close();
+        return types;
+    }
+
+    public List<SumTypeItem> getSumTypeTotal() {
+        List<SumTypeItem> types = new ArrayList<SumTypeItem>();
+
+        Cursor cursor = database.rawQuery(
+                MessageFormat.format(
+                    "SELECT " +
+                        "TP.{0}, " +
+                        "TP.{1}, " +
+                        "SUM((TM.{2}/ 60)*(TM.{3}/ 1000)) AS litters " +
+                    "FROM {4} TM INNER JOIN {5} TP ON " +
+                        "TM.{6} = TP.{0} " +
+                    "GROUP BY " +
+                        "TP.{0}, " +
+                        "TP.{1} " +
+                    "ORDER BY " +
+                        "TP.{0};",
+
+                    TypeTable.TYPE_ID,      //0
+                    TypeTable.TYPE_DESC,    //1
+                    TimerTable.TIMER_LITERS,//2
+                    TimerTable.TIMER_MILLIS,//3
+                    TimerTable.TABLE_TIMERS,//4
+                    TypeTable.TABLE_TYPES,  //5
+                    TimerTable.TIMER_TYPE_ID//6
+                )
+            ,null
+        );
+
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()) {
+            SumTypeItem type = cursorToSumType(cursor);
+            types.add(type);
+            cursor.moveToNext();
+        }
+        // make sure to close the cursor
+        cursor.close();
+        return types;
+    }
+
+    public float getSumType(long typeId){
         float total;
 
         Cursor cursor = database.rawQuery(
@@ -158,6 +241,15 @@ public class TypeDS {
             cursor.getString(1),
             cursor.getFloat(2),
             cursor.getString(3).charAt(0)
+        );
+    }
+
+    private SumTypeItem cursorToSumType(Cursor cursor) {
+        //long itemId, String itemDesc, float itemLiter, char itemCustom
+        return new SumTypeItem(
+            cursor.getLong(0),
+            cursor.getString(1),
+            cursor.getFloat(2)
         );
     }
 

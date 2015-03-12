@@ -18,21 +18,21 @@ import com.github.mikephil.charting.utils.Highlight;
 import com.github.mikephil.charting.utils.PercentFormatter;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import alphadelete.aguaconsciente.R;
+import alphadelete.aguaconsciente.dao.TypeDS;
+import alphadelete.aguaconsciente.models.SumTypeItem;
 
 public class ReportTotalFragment extends Fragment implements OnChartValueSelectedListener {
     // the fragment initialization parameters
     private static final String ARG_POSITION = "position";
     private int position;
 
-    protected String[] mParties = new String[] {
-            "Party A", "Party B", "Party C", "Party D", "Party E", "Party F", "Party G", "Party H",
-            "Party I", "Party J", "Party K", "Party L", "Party M", "Party N", "Party O", "Party P",
-            "Party Q", "Party R", "Party S", "Party T", "Party U", "Party V", "Party W", "Party X",
-            "Party Y", "Party Z"
-    };
+    // Database
+    private TypeDS typeDatasource;
 
+    // Chart
     protected PieChart mChart;
 
     public static ReportTotalFragment newInstance(int position) {
@@ -55,7 +55,6 @@ public class ReportTotalFragment extends Fragment implements OnChartValueSelecte
         }
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
@@ -77,23 +76,27 @@ public class ReportTotalFragment extends Fragment implements OnChartValueSelecte
         mChart.setDrawHoleEnabled(true);
 
         mChart.setRotationAngle(0);
-        // enable rotation of the chart by touch
+
+        // disable rotation of the chart by touch
         mChart.setRotationEnabled(false);
 
-        // mChart.setUnit(" €");
-        // mChart.setDrawUnitsInChart(true);
+        // disable X axis text
+        mChart.setDrawSliceText(!mChart.isDrawSliceTextEnabled());
 
         // add a selection listener
         mChart.setOnChartValueSelectedListener(this);
-        // mChart.setTouchEnabled(false);
 
-        mChart.setCenterText("MPAndroidChart\nLibrary");
+        // Set data and Get total Liters
+        float total = setData();
 
-        setData(3, 100);
+        mChart.setCenterText(
+                getActivity().getString(R.string.chart_total)
+                + "\n" +
+                String.format("%.2f", total) + " " + getActivity().getString(R.string.msg_liter));
 
         animateChart();
-        // mChart.spin(2000, 0, 360);
 
+        // Set Legend
         Legend l = mChart.getLegend();
         l.setPosition(Legend.LegendPosition.RIGHT_OF_CHART);
         l.setXEntrySpace(7f);
@@ -106,44 +109,50 @@ public class ReportTotalFragment extends Fragment implements OnChartValueSelecte
         mChart.animateXY(1500, 1500);
     }
 
-    private void setData(int count, float range) {
+    private float setData() {
+        float totalLiters = 0;
 
-        float mult = range;
+        // Open connection to timer database
+        typeDatasource = new TypeDS(getActivity());
+        typeDatasource.open();
 
-        ArrayList<Entry> yVals1 = new ArrayList<Entry>();
+        // Get Totals from database
+        List<SumTypeItem> Total;
+        Total = typeDatasource.getSumTypeTotal();
 
-        // IMPORTANT: In a PieChart, no values (Entry) should have the same
-        // xIndex (even if from different DataSets), since no values can be
-        // drawn above each other.
-        for (int i = 0; i < count + 1; i++) {
-            yVals1.add(new Entry((float) (Math.random() * mult) + mult / 5, i));
+        // Close connection to timer database
+        typeDatasource.close();
+
+        // Set Chart Axis Data
+        ArrayList<Entry> yVals = new ArrayList<Entry>();
+        ArrayList<String> xVals = new ArrayList<String>();
+        for (SumTypeItem item : Total) {
+            yVals.add(new Entry(item.getLiter(), (int)item.getId()));
+            xVals.add(item.getDesc());
+            totalLiters += item.getLiter();
         }
 
-        ArrayList<String> xVals = new ArrayList<String>();
-
-        for (int i = 0; i < count + 1; i++)
-            xVals.add(mParties[i % mParties.length]);
-
-        PieDataSet dataSet = new PieDataSet(yVals1, "Election Results");
+        PieDataSet dataSet = new PieDataSet(yVals, "");
         dataSet.setSliceSpace(3f);
 
         // add a lot of colors
-
         ArrayList<Integer> colors = new ArrayList<Integer>();
 
-        for (int c : ColorTemplate.VORDIPLOM_COLORS)
-            colors.add(c);
+        int[] ALPHA_COLORS = {
+                Color.rgb(35, 77, 208), Color.rgb(37, 129, 218), Color.rgb(43, 160, 195),
+                Color.rgb(37, 218, 212), Color.rgb(35, 208, 153)
+        };
 
-        for (int c : ColorTemplate.JOYFUL_COLORS)
-            colors.add(c);
-
-        for (int c : ColorTemplate.COLORFUL_COLORS)
+        for (int c : ALPHA_COLORS)
             colors.add(c);
 
         for (int c : ColorTemplate.LIBERTY_COLORS)
             colors.add(c);
 
         for (int c : ColorTemplate.PASTEL_COLORS)
+            colors.add(c);
+
+        for (int c : ColorTemplate.VORDIPLOM_COLORS)
             colors.add(c);
 
         colors.add(ColorTemplate.getHoloBlue());
@@ -161,6 +170,8 @@ public class ReportTotalFragment extends Fragment implements OnChartValueSelecte
         mChart.highlightValues(null);
 
         mChart.invalidate();
+
+        return totalLiters;
     }
 
     @Override

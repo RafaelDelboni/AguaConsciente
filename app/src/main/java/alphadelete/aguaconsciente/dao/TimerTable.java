@@ -15,13 +15,17 @@ public class TimerTable {
     private static final String TABLE_CREATE =
         "create table " + TABLE_TIMERS + "("
             + TIMER_ID + " integer primary key autoincrement, "
-            + TIMER_TYPE_ID + " integer not null, "
+            + TIMER_TYPE_ID + " integer REFERENCES "+ TypeTable.TABLE_TYPES +" not null, "
             + TIMER_MILLIS + " float not null, "
             + TIMER_LITERS + " float not null, "
             + TIMER_DATE + " long not null);";
 
+    private static final String TABLE_INDEX =
+        "CREATE INDEX TABLE_TIMERS_IDX_1 ON " + TABLE_TIMERS + "(" + TIMER_TYPE_ID + "," + TIMER_DATE + ");";
+
     public static void onCreate(SQLiteDatabase database) {
         database.execSQL(TABLE_CREATE);
+        database.execSQL(TABLE_INDEX);
     }
 
     public static void onUpgrade(SQLiteDatabase database, int oldVersion,

@@ -17,6 +17,8 @@
     <string name="msg_box_yes">OK</string>
     <string name="msg_box_no">Cancelar</string>
 
+    <string name="chart_total">Água consumida</string>
+
     <string name="tab_timer_record">Medir Consumo</string>
     <string name="tab_timer_saved_recordings">Histórico de Uso</string>
     <string name="tab_reports_total">Total</string>

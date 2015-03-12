@@ -81,7 +81,7 @@ public class TypeItemArrayViewAdapter extends RecyclerView.Adapter<TypeItemArray
         typeDatasource = new TypeDS(mContext);
         typeDatasource.open();
 
-        float total = typeDatasource.sumType(typeId);
+        float total = typeDatasource.getSumType(typeId);
 
         // Close connection to timer database
         typeDatasource.close();

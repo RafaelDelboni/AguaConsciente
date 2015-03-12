@@ -1,5 +1,6 @@
 package alphadelete.aguaconsciente.ui.fragments;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -18,14 +19,23 @@ import com.github.mikephil.charting.utils.ValueFormatter;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
+import java.util.Locale;
 
 import alphadelete.aguaconsciente.R;
+import alphadelete.aguaconsciente.dao.TypeDS;
+import alphadelete.aguaconsciente.models.SumTypeItem;
 
 public class ReportLastMonthsFragment extends Fragment {
     // the fragment initialization parameters
     private static final String ARG_POSITION = "position";
     private int position;
 
+    // Database
+    private TypeDS typeDatasource;
+
+    // Chart
     protected BarChart mChart;
     protected String[] mMonths = new String[] {
             "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dec"
@@ -90,7 +100,8 @@ public class ReportLastMonthsFragment extends Fragment {
         mChart.getAxisRight().setEnabled(false);
 
         //mChart.setVisibility(View.VISIBLE);
-        setData(12, 1000);
+        setData();
+        //setDataFake(12, 1000);
 
         animateChart();
 
@@ -108,7 +119,110 @@ public class ReportLastMonthsFragment extends Fragment {
         mChart.animateY(3000);
     }
 
-    private void setData(int count, float range) {
+    private void setData() {
+
+        Calendar cal = Calendar.getInstance();
+
+        // Open connection to timer database
+        typeDatasource = new TypeDS(getActivity());
+        typeDatasource.open();
+
+        List<SumTypeItem> sumTypesMonth = new ArrayList<SumTypeItem>();
+        ArrayList<String> xVals = new ArrayList<String>();
+        ArrayList<BarEntry> yVals = new ArrayList<BarEntry>();
+
+        for (int i = 0; i < 12; i++) {
+
+            // get to the lowest day of that month
+            cal.set(Calendar.DAY_OF_MONTH, cal.getActualMinimum(Calendar.DAY_OF_MONTH));
+            // lowest possible time in that day
+            cal.set(Calendar.HOUR_OF_DAY, cal.getActualMinimum(Calendar.HOUR_OF_DAY));
+            cal.set(Calendar.MINUTE, cal.getActualMinimum(Calendar.MINUTE));
+            cal.set(Calendar.SECOND, cal.getActualMinimum(Calendar.SECOND));
+            // Store it to use later
+            long longIni = cal.getTimeInMillis();
+
+            // get to the latest day of that month
+            cal.set(Calendar.DAY_OF_MONTH, cal.getActualMaximum(Calendar.DAY_OF_MONTH));
+            // max possible time in that day
+            cal.set(Calendar.HOUR_OF_DAY, cal.getActualMaximum(Calendar.HOUR_OF_DAY));
+            cal.set(Calendar.MINUTE, cal.getActualMaximum(Calendar.MINUTE));
+            cal.set(Calendar.SECOND, cal.getActualMaximum(Calendar.SECOND));
+            // Store it to use later
+            long longEnd = cal.getTimeInMillis();
+
+            // Set Month name for X
+            xVals.add(cal.getDisplayName(Calendar.MONTH, Calendar.SHORT, Locale.getDefault()));
+
+            // Get totals from database
+            sumTypesMonth = typeDatasource.getSumTypeTotal(longIni, longEnd);
+
+            // Set Values for Y
+            float[] yData = new float[sumTypesMonth.size()];
+            for (int j = 0; j < sumTypesMonth.size(); j++) {
+                yData[j] = sumTypesMonth.get(j).getLiter();
+            }
+            yVals.add(new BarEntry(yData, i));
+
+            // subtract month
+            cal.add(Calendar.MONTH, -1);
+        }
+
+        // Close connection to timer database
+        typeDatasource.close();
+
+        // Chart dataset
+        BarDataSet dataSet = new BarDataSet(yVals, "");
+
+        // Colors
+        // add a lot of colors
+        ArrayList<Integer> colors = new ArrayList<Integer>();
+
+        int[] ALPHA_COLORS = {
+                Color.rgb(35, 77, 208), Color.rgb(37, 129, 218), Color.rgb(43, 160, 195),
+                Color.rgb(37, 218, 212), Color.rgb(35, 208, 153)
+        };
+
+        for (int c : ALPHA_COLORS)
+            colors.add(c);
+
+        for (int c : ColorTemplate.LIBERTY_COLORS)
+            colors.add(c);
+
+        for (int c : ColorTemplate.PASTEL_COLORS)
+            colors.add(c);
+
+        for (int c : ColorTemplate.VORDIPLOM_COLORS)
+            colors.add(c);
+
+        colors.add(ColorTemplate.getHoloBlue());
+
+        dataSet.setColors(colors);
+
+        // Set Label data
+        String[] labels = new String[sumTypesMonth.size()];
+        for (int j = 0; j < sumTypesMonth.size(); j++) {
+            labels[j] = sumTypesMonth.get(j).getDesc();
+        }
+        dataSet.setStackLabels(labels);
+
+        ArrayList<BarDataSet> dataSets = new ArrayList<BarDataSet>();
+        dataSets.add(dataSet);
+
+        BarData data = new BarData(xVals, dataSets);
+        data.setValueFormatter(new MyValueFormatter());
+
+        data.setDrawValues(false);
+
+        mChart.setData(data);
+
+        mChart.setHighlightEnabled(false);
+
+        mChart.invalidate();
+
+    }
+
+    private void setDataFake(int count, float range) {
 
         ArrayList<String> xVals = new ArrayList<String>();
         for (int i = 0; i < count + 1; i++) {
@@ -129,9 +243,32 @@ public class ReportLastMonthsFragment extends Fragment {
         }
 
         BarDataSet set1 = new BarDataSet(yVals1, "");
-        set1.setColors(ColorTemplate.LIBERTY_COLORS);
+        // Colors
+        // add a lot of colors
+        ArrayList<Integer> colors = new ArrayList<Integer>();
+
+        int[] ALPHA_COLORS = {
+                Color.rgb(35, 77, 208), Color.rgb(37, 129, 218), Color.rgb(43, 160, 195),
+                Color.rgb(37, 218, 212), Color.rgb(35, 208, 153)
+        };
+
+        for (int c : ALPHA_COLORS)
+            colors.add(c);
+
+        for (int c : ColorTemplate.LIBERTY_COLORS)
+            colors.add(c);
+
+        for (int c : ColorTemplate.PASTEL_COLORS)
+            colors.add(c);
+
+        for (int c : ColorTemplate.VORDIPLOM_COLORS)
+            colors.add(c);
+
+        colors.add(ColorTemplate.getHoloBlue());
+
+        set1.setColors(colors);
         set1.setStackLabels(new String[] {
-                "Births", "Divorces", "Marriages"
+            "Escovar dentes", "Lavar Louça", "Tomar banho"
         });
 
         ArrayList<BarDataSet> dataSets = new ArrayList<BarDataSet>();
@@ -155,7 +292,7 @@ public class ReportLastMonthsFragment extends Fragment {
         private DecimalFormat mFormat;
 
         public MyValueFormatter() {
-            mFormat = new DecimalFormat("###,###,###,##0.0");
+            mFormat = new DecimalFormat("##,###,###,##0.0");
         }
 
         @Override

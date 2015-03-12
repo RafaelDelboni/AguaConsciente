@@ -17,6 +17,8 @@
     <string name="msg_box_yes">OK</string>
     <string name="msg_box_no">Cancel</string>
 
+    <string name="chart_total">Water used</string>
+
     <string name="tab_timer_record">Measure</string>
     <string name="tab_timer_saved_recordings">History</string>
     <string name="tab_reports_total">Total</string>
