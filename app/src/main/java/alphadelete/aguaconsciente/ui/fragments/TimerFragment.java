@@ -132,6 +132,7 @@ public class TimerFragment extends Fragment {
         } else {
             // Stop recording
             mRecordButton.setImageResource(R.drawable.ic_timer_set);
+            Toast.makeText(getActivity(), R.string.toast_recording_finish, Toast.LENGTH_SHORT).show();
 
             mChronometer.stop();
 
