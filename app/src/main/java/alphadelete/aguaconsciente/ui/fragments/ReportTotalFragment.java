@@ -176,7 +176,6 @@ public class ReportTotalFragment extends Fragment implements OnChartValueSelecte
 
     @Override
     public void onValueSelected(Entry e, int dataSetIndex, Highlight h) {
-
         if (e == null)
             return;
     }

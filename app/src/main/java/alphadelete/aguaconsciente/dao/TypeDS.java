@@ -133,8 +133,8 @@ public class TypeDS {
                             "SUM((TM.{2}/ 60)*(TM.{3}/ 1000)) AS litters " +
                         "FROM {5} TP LEFT JOIN {4} TM ON " +
                             "TM.{6} = TP.{0} AND " +
-                            "TM.{7} >= " + dateIni + " AND " +
-                            "TM.{7} <= " + dateEnd + " " +
+                            "datetime(TM.{7}/1000, ''unixepoch'') >= datetime(" + dateIni + "/1000, ''unixepoch'') AND " +
+                            "datetime(TM.{7}/1000, ''unixepoch'') <= datetime(" + dateEnd + "/1000, ''unixepoch'') " +
                         "GROUP BY " +
                             "TP.{0}, " +
                             "TP.{1} " +

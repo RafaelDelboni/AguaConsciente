@@ -18,7 +18,7 @@ public class TimerTable {
             + TIMER_TYPE_ID + " integer REFERENCES "+ TypeTable.TABLE_TYPES +" not null, "
             + TIMER_MILLIS + " float not null, "
             + TIMER_LITERS + " float not null, "
-            + TIMER_DATE + " long not null);";
+            + TIMER_DATE + " bigint not null);";
 
     private static final String TABLE_INDEX =
         "CREATE INDEX TABLE_TIMERS_IDX_1 ON " + TABLE_TIMERS + "(" + TIMER_TYPE_ID + "," + TIMER_DATE + ");";

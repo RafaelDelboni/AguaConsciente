@@ -7,15 +7,48 @@
         android:id="@+id/toolbar"
         layout="@layout/toolbar"/>
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/cardList"
+    <Switch
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:text="@string/config_screen"
+        android:id="@+id/config_switch_screen"
+        android:layout_below="@+id/toolbar"
+        android:textSize="20sp" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider"
+        android:layout_below="@+id/config_switch_screen"/>
+
+    <TextView
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:paddingTop="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/config_types"
+        android:id="@+id/config_label_types"
+        android:layout_below="@+id/config_switch_screen"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textSize="20sp"
+        android:textColor="@android:color/black" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/cardList"
+        android:paddingLeft="2dp"
+        android:paddingRight="2dp"
         android:paddingTop="5dp"
         android:paddingBottom="5dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/toolbar"
-    />
+        android:layout_below="@+id/config_label_types"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>

@@ -15,17 +15,19 @@ import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.utils.ColorTemplate;
-import com.github.mikephil.charting.utils.ValueFormatter;
 
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
 import alphadelete.aguaconsciente.R;
+import alphadelete.aguaconsciente.dao.TimerDS;
 import alphadelete.aguaconsciente.dao.TypeDS;
 import alphadelete.aguaconsciente.models.SumTypeItem;
+import alphadelete.aguaconsciente.models.TimerItem;
 
 public class ReportLastMonthsFragment extends Fragment {
     // the fragment initialization parameters
@@ -91,15 +93,13 @@ public class ReportLastMonthsFragment extends Fragment {
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
         xAxis.setDrawGridLines(false);
 
-        ValueFormatter custom = new MyValueFormatter();
-
         YAxis leftAxis = mChart.getAxisLeft();
         leftAxis.setLabelCount(8);
-        leftAxis.setValueFormatter(custom);
 
         mChart.getAxisRight().setEnabled(false);
 
-        //mChart.setVisibility(View.VISIBLE);
+        mChart.setHighlightEnabled(false);
+
         setData();
         //setDataFake(12, 1000);
 
@@ -121,17 +121,18 @@ public class ReportLastMonthsFragment extends Fragment {
 
     private void setData() {
 
-        Calendar cal = Calendar.getInstance();
-
         // Open connection to timer database
         typeDatasource = new TypeDS(getActivity());
         typeDatasource.open();
 
         List<SumTypeItem> sumTypesMonth = new ArrayList<SumTypeItem>();
-        ArrayList<String> xVals = new ArrayList<String>();
-        ArrayList<BarEntry> yVals = new ArrayList<BarEntry>();
+        ArrayList<String> xMonthVals = new ArrayList<String>();
+        ArrayList<BarEntry> yMonthVals = new ArrayList<BarEntry>();
 
         for (int i = 0; i < 12; i++) {
+            Calendar cal = Calendar.getInstance();
+            // subtract month
+            cal.add(Calendar.MONTH, -i);
 
             // get to the lowest day of that month
             cal.set(Calendar.DAY_OF_MONTH, cal.getActualMinimum(Calendar.DAY_OF_MONTH));
@@ -141,6 +142,7 @@ public class ReportLastMonthsFragment extends Fragment {
             cal.set(Calendar.SECOND, cal.getActualMinimum(Calendar.SECOND));
             // Store it to use later
             long longIni = cal.getTimeInMillis();
+            Date ini = new Date(longIni);
 
             // get to the latest day of that month
             cal.set(Calendar.DAY_OF_MONTH, cal.getActualMaximum(Calendar.DAY_OF_MONTH));
@@ -150,9 +152,14 @@ public class ReportLastMonthsFragment extends Fragment {
             cal.set(Calendar.SECOND, cal.getActualMaximum(Calendar.SECOND));
             // Store it to use later
             long longEnd = cal.getTimeInMillis();
+            Date end = new Date(longEnd);
 
             // Set Month name for X
-            xVals.add(cal.getDisplayName(Calendar.MONTH, Calendar.SHORT, Locale.getDefault()));
+            xMonthVals.add(
+                cal.getDisplayName(Calendar.MONTH, Calendar.SHORT, Locale.getDefault())
+                + "/" +
+                cal.get(Calendar.YEAR)
+            );
 
             // Get totals from database
             sumTypesMonth = typeDatasource.getSumTypeTotal(longIni, longEnd);
@@ -162,17 +169,16 @@ public class ReportLastMonthsFragment extends Fragment {
             for (int j = 0; j < sumTypesMonth.size(); j++) {
                 yData[j] = sumTypesMonth.get(j).getLiter();
             }
-            yVals.add(new BarEntry(yData, i));
+            yMonthVals.add(new BarEntry(yData, i));
 
-            // subtract month
-            cal.add(Calendar.MONTH, -1);
+            //insertFakeData(longIni);
         }
 
         // Close connection to timer database
         typeDatasource.close();
 
         // Chart dataset
-        BarDataSet dataSet = new BarDataSet(yVals, "");
+        BarDataSet dataSetMonth = new BarDataSet(yMonthVals, "");
 
         // Colors
         // add a lot of colors
@@ -197,109 +203,65 @@ public class ReportLastMonthsFragment extends Fragment {
 
         colors.add(ColorTemplate.getHoloBlue());
 
-        dataSet.setColors(colors);
+        dataSetMonth.setColors(colors);
 
         // Set Label data
         String[] labels = new String[sumTypesMonth.size()];
         for (int j = 0; j < sumTypesMonth.size(); j++) {
             labels[j] = sumTypesMonth.get(j).getDesc();
         }
-        dataSet.setStackLabels(labels);
+        dataSetMonth.setStackLabels(labels);
 
         ArrayList<BarDataSet> dataSets = new ArrayList<BarDataSet>();
-        dataSets.add(dataSet);
+        dataSets.add(dataSetMonth);
 
-        BarData data = new BarData(xVals, dataSets);
-        data.setValueFormatter(new MyValueFormatter());
+        BarData data = new BarData(xMonthVals, dataSets);
 
         data.setDrawValues(false);
 
         mChart.setData(data);
 
-        mChart.setHighlightEnabled(false);
-
         mChart.invalidate();
 
     }
 
-    private void setDataFake(int count, float range) {
+    private void insertFakeData(long data){
+        // Open connection to timer database
+        TimerDS timerDatasource = new TimerDS(getActivity());
+        timerDatasource.open();
+        TimerItem newTimer;
 
-        ArrayList<String> xVals = new ArrayList<String>();
-        for (int i = 0; i < count + 1; i++) {
-            xVals.add(mMonths[i % mMonths.length]);
-        }
+        // Add Item to Database and auto add the adapter
+        newTimer = timerDatasource.createTimer(
+                1,
+                10,
+                (float) Math.random() * 1000,
+                data
+        );
 
-        ArrayList<BarEntry> yVals1 = new ArrayList<BarEntry>();
+        newTimer = timerDatasource.createTimer(
+                2,
+                20,
+                (float) Math.random() * 1000,
+                data
+        );
 
-        for (int i = 0; i < count + 1; i++) {
-            float mult = (range + 1);
-            float val1 = (float) (Math.random() * mult) + mult / 3;
-            float val2 = (float) (Math.random() * mult) + mult / 3;
-            float val3 = (float) (Math.random() * mult) + mult / 3;
+        newTimer = timerDatasource.createTimer(
+                3,
+                30,
+                (float) Math.random() * 1000,
+                data
+        );
 
-            yVals1.add(new BarEntry(new float[] {
-                    val1, val2, val3
-            }, i));
-        }
+        newTimer = timerDatasource.createTimer(
+                4,
+                40,
+                (float) Math.random() * 1000,
+                data
+        );
 
-        BarDataSet set1 = new BarDataSet(yVals1, "");
-        // Colors
-        // add a lot of colors
-        ArrayList<Integer> colors = new ArrayList<Integer>();
-
-        int[] ALPHA_COLORS = {
-                Color.rgb(35, 77, 208), Color.rgb(37, 129, 218), Color.rgb(43, 160, 195),
-                Color.rgb(37, 218, 212), Color.rgb(35, 208, 153)
-        };
-
-        for (int c : ALPHA_COLORS)
-            colors.add(c);
-
-        for (int c : ColorTemplate.LIBERTY_COLORS)
-            colors.add(c);
-
-        for (int c : ColorTemplate.PASTEL_COLORS)
-            colors.add(c);
-
-        for (int c : ColorTemplate.VORDIPLOM_COLORS)
-            colors.add(c);
-
-        colors.add(ColorTemplate.getHoloBlue());
-
-        set1.setColors(colors);
-        set1.setStackLabels(new String[] {
-            "Escovar dentes", "Lavar Louça", "Tomar banho"
-        });
-
-        ArrayList<BarDataSet> dataSets = new ArrayList<BarDataSet>();
-        dataSets.add(set1);
-
-        BarData data = new BarData(xVals, dataSets);
-        data.setValueFormatter(new MyValueFormatter());
-
-        data.setDrawValues(false);
-
-        mChart.setData(data);
-
-        mChart.setHighlightEnabled(false);
-
-        mChart.invalidate();
-
-    }
-
-    public class MyValueFormatter implements ValueFormatter {
-
-        private DecimalFormat mFormat;
-
-        public MyValueFormatter() {
-            mFormat = new DecimalFormat("##,###,###,##0.0");
-        }
-
-        @Override
-        public String getFormattedValue(float value) {
-            return mFormat.format(value);// + " $";
-        }
-
+        // Close connection to timer database
+        timerDatasource.close();
     }
 
 }

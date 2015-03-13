@@ -2,13 +2,6 @@
 <items version="2" >
 
     <item
-        jar="/Users/rafaeldelboni/AndroidStudioProjects/AguaConsciente/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/21.0.3/classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="4b8945fc23a7461c6fdde15753456d64b0a9358b">
-        <dex dex="/Users/rafaeldelboni/AndroidStudioProjects/AguaConsciente/app/build/intermediates/pre-dexed/debug/classes-4085bf1e128d78c96ba86b4ae3fb1d8ed802bd19.jar" />
-    </item>
-    <item
         jar="/Users/rafaeldelboni/AndroidStudioProjects/AguaConsciente/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/21.0.3/classes.jar"
         jumboMode="false"
         revision="21.1.2"
@@ -30,20 +23,6 @@
         <dex dex="/Users/rafaeldelboni/AndroidStudioProjects/AguaConsciente/app/build/intermediates/pre-dexed/debug/support-annotations-21.0.3-d91c99e6a5827b2c59e49ec4fab7c0fe03890ca8.jar" />
     </item>
     <item
-        jar="/Users/rafaeldelboni/AndroidStudioProjects/AguaConsciente/app/build/intermediates/exploded-aar/com.melnykov/floatingactionbutton/1.2.0/classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="65620ba5e576dcec2c86efa440b00d042a27383b">
-        <dex dex="/Users/rafaeldelboni/AndroidStudioProjects/AguaConsciente/app/build/intermediates/pre-dexed/debug/classes-11f5c54474b76d60b43f38ec9cb0021daebc6a04.jar" />
-    </item>
-    <item
-        jar="/Users/rafaeldelboni/AndroidStudioProjects/AguaConsciente/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
-        <dex dex="/Users/rafaeldelboni/AndroidStudioProjects/AguaConsciente/app/build/intermediates/pre-dexed/debug/classes-13ca3d42d6095fdc9db1f0d8a64e414274dc7cf9.jar" />
-    </item>
-    <item
         jar="/Users/rafaeldelboni/AndroidStudioProjects/AguaConsciente/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/classes.jar"
         jumboMode="false"
         revision="21.1.2"
@@ -63,6 +42,34 @@
         revision="21.1.2"
         sha1="6e39b199dbf51a39f3bea5f976fdd5f66aaf77e1">
         <dex dex="/Users/rafaeldelboni/AndroidStudioProjects/AguaConsciente/app/build/intermediates/pre-dexed/debug/MPAndroidChart-v2.0.7-5d8753246ee8dbd75b018293672a7e3e706875be.jar" />
+    </item>
+    <item
+        jar="/Users/rafaeldelboni/AndroidStudioProjects/AguaConsciente/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/6.5.87/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="dd9247ea0fabe8ee479638c4b4a23e93752be256">
+        <dex dex="/Users/rafaeldelboni/AndroidStudioProjects/AguaConsciente/app/build/intermediates/pre-dexed/debug/classes-fe8f16452e66bddb17c28ee0a3f20aa09fcae7cf.jar" />
+    </item>
+    <item
+        jar="/Users/rafaeldelboni/AndroidStudioProjects/AguaConsciente/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/21.0.3/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="4b8945fc23a7461c6fdde15753456d64b0a9358b">
+        <dex dex="/Users/rafaeldelboni/AndroidStudioProjects/AguaConsciente/app/build/intermediates/pre-dexed/debug/classes-4085bf1e128d78c96ba86b4ae3fb1d8ed802bd19.jar" />
+    </item>
+    <item
+        jar="/Users/rafaeldelboni/AndroidStudioProjects/AguaConsciente/app/build/intermediates/exploded-aar/com.melnykov/floatingactionbutton/1.2.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="65620ba5e576dcec2c86efa440b00d042a27383b">
+        <dex dex="/Users/rafaeldelboni/AndroidStudioProjects/AguaConsciente/app/build/intermediates/pre-dexed/debug/classes-11f5c54474b76d60b43f38ec9cb0021daebc6a04.jar" />
+    </item>
+    <item
+        jar="/Users/rafaeldelboni/AndroidStudioProjects/AguaConsciente/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
+        <dex dex="/Users/rafaeldelboni/AndroidStudioProjects/AguaConsciente/app/build/intermediates/pre-dexed/debug/classes-13ca3d42d6095fdc9db1f0d8a64e414274dc7cf9.jar" />
     </item>
     <item
         jar="/Users/rafaeldelboni/AndroidStudioProjects/AguaConsciente/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/libs/internal_impl-21.0.3.jar"

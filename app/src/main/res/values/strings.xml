@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Agua Consciente</string>
+    <string name="app_name">Água Consciente</string>
     <string name="action_settings">Configuration</string>
     <string name="action_timer">Consumption</string>
     <string name="action_reports">Reports</string>
@@ -35,5 +35,10 @@
     <string name="type_2">Wash dishes</string>
     <string name="type_3">Wash clothes</string>
     <string name="type_4">Take a shower</string>
+
+    <string name="config_screen">Keep screen on</string>
+    <string name="config_types">Manage types</string>
+
+    <string name="banner_ad_unit_id">ca-app-pub-5959078498098267/9101384167</string>
 
 </resources>

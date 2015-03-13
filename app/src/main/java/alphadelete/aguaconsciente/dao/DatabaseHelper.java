@@ -19,6 +19,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         TypeTable.onCreate(db, context);
         TimerTable.onCreate(db);
+        ConfigTable.onCreate(db);
     }
 
     @Override
@@ -26,6 +27,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         TimerTable.onUpgrade(db, oldVersion, newVersion);
         TypeTable.onUpgrade(db, oldVersion, newVersion, context);
-
+        ConfigTable.onUpgrade(db, oldVersion, newVersion);
     }
 }

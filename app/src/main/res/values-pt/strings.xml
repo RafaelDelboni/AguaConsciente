@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Agua Consciente</string>
+    <string name="app_name">Água Consciente</string>
     <string name="action_settings">Configurações</string>
     <string name="action_timer">Consumo</string>
     <string name="action_reports">Relatórios</string>
@@ -35,5 +35,8 @@
     <string name="type_2">Lavar louça</string>
     <string name="type_3">Lavar roupa</string>
     <string name="type_4">Tomar banho</string>
+
+    <string name="config_screen">Manter a tela ligada</string>
+    <string name="config_types">Alterar tipos</string>
 
 </resources>

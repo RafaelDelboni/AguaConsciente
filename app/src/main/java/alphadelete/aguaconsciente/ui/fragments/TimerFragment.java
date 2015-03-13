@@ -6,12 +6,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.support.v4.app.Fragment;
+import android.view.WindowManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.melnykov.fab.FloatingActionButton;
 
 import alphadelete.aguaconsciente.R;
+import alphadelete.aguaconsciente.dao.ConfigDS;
 import alphadelete.aguaconsciente.dao.TimerDS;
 import alphadelete.aguaconsciente.dao.TypeDS;
 import alphadelete.aguaconsciente.models.TimerItem;
@@ -26,9 +28,11 @@ public class TimerFragment extends Fragment {
 
     private int position;
     private long type;
+    private boolean keepScreenOn = false;
 
     // Database stuff
     private TypeItem activityType;
+    private ConfigDS configDatasource;
 
     //Recording controls
     private FloatingActionButton mRecordButton = null;
@@ -91,6 +95,9 @@ public class TimerFragment extends Fragment {
             }
         });
 
+        // Get config to check if it will keep screen on
+        getConfigScreenOn();
+
         return recordView;
     }
 
@@ -115,6 +122,11 @@ public class TimerFragment extends Fragment {
                 }
             });
 
+            //keep screen on while recording
+            if(keepScreenOn) {
+                getActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+            }
+
             mRecordingPrompt.setText("0.00 " + getString(R.string.record_in_progress));
 
         } else {
@@ -131,6 +143,11 @@ public class TimerFragment extends Fragment {
             mChronometer.setBase(SystemClock.elapsedRealtime());
 
             mRecordingPrompt.setText(getString(R.string.timer_prompt));
+
+            //allow the screen to turn off again once recording is finished
+            if(keepScreenOn) {
+                getActivity().getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+            }
         }
     }
 
@@ -158,6 +175,20 @@ public class TimerFragment extends Fragment {
 
         // Close connection to timer database
         timerDatasource.close();
+    }
+
+    private void getConfigScreenOn(){
+        // Open connection to database
+        configDatasource = new ConfigDS(getActivity());
+        configDatasource.open();
+
+        String configValue = configDatasource.getConfigValue("KEEP_SCREEN");
+        if(configValue.equals("Y")){
+            keepScreenOn = true;
+        }
+
+        // Close connection to timer database
+        configDatasource.close();
     }
 
     private void getTimerType(long typeId){

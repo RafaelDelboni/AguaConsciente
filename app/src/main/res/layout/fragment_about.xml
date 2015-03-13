@@ -111,6 +111,27 @@
                 android:textStyle="italic"
                 android:text="@string/license_content_tabs"/>
 
+            <!-- MPAndroidChart -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:text="@string/license_title_chart"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:text="@string/license_author_chart"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textSize="15sp"
+                android:textStyle="italic"
+                android:text="@string/license_content_chart"/>
+
         </LinearLayout>
 
     </ScrollView>
