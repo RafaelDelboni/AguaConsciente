@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="license_title">Softwares Utilizados</string>
+    <string name="license_title">Used Softwares</string>
 
-    <string name="license_title_fab">Floating Action Button</string>
-    <string name="license_author_fab">Oleksandr Melnykov</string>
-    <string name="license_content_fab">
+    <string name="license_title_fab" translatable="false">Floating Action Button</string>
+    <string name="license_author_fab" translatable="false">Oleksandr Melnykov</string>
+    <string name="license_content_fab" translatable="false">
         The MIT License (MIT)
         \n\nCopyright 2014 Oleksandr Melnykov
 
@@ -27,9 +27,9 @@
         SOFTWARE.
     </string>
 
-    <string name="license_title_tabs">PagerSlidingTabStrip</string>
-    <string name="license_author_tabs">Andreas Stuetz</string>
-    <string name="license_content_tabs">
+    <string name="license_title_tabs" translatable="false">PagerSlidingTabStrip</string>
+    <string name="license_author_tabs" translatable="false">Andreas Stuetz</string>
+    <string name="license_content_tabs" translatable="false">
         Copyright 2013 Andreas Stuetz
 
         \n\nLicensed under the Apache License, Version 2.0 (the "License");
@@ -45,9 +45,9 @@
         limitations under the License.
     </string>
 
-    <string name="license_title_chart">MPAndroidChart</string>
-    <string name="license_author_chart">Philipp Jahoda</string>
-    <string name="license_content_chart">
+    <string name="license_title_chart" translatable="false">MPAndroidChart</string>
+    <string name="license_author_chart" translatable="false">Philipp Jahoda</string>
+    <string name="license_content_chart" translatable="false">
         Copyright 2015 Philipp Jahoda
 
         \n\nLicensed under the Apache License, Version 2.0 (the "License");

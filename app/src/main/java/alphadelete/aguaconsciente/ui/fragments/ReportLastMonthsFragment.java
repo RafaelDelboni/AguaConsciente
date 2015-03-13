@@ -235,28 +235,28 @@ public class ReportLastMonthsFragment extends Fragment {
         newTimer = timerDatasource.createTimer(
                 1,
                 10,
-                (float) Math.random() * 1000,
+                (float) Math.random() * 10000,
                 data
         );
 
         newTimer = timerDatasource.createTimer(
                 2,
                 20,
-                (float) Math.random() * 1000,
+                (float) Math.random() * 10000,
                 data
         );
 
         newTimer = timerDatasource.createTimer(
                 3,
                 30,
-                (float) Math.random() * 1000,
+                (float) Math.random() * 10000,
                 data
         );
 
         newTimer = timerDatasource.createTimer(
                 4,
                 40,
-                (float) Math.random() * 1000,
+                (float) Math.random() * 10000,
                 data
         );
 

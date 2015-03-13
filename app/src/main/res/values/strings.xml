@@ -39,6 +39,6 @@
     <string name="config_screen">Keep screen on</string>
     <string name="config_types">Manage types</string>
 
-    <string name="banner_ad_unit_id">ca-app-pub-5959078498098267/9101384167</string>
+    <string name="banner_ad_unit_id" translatable="false">ca-app-pub-5959078498098267/9101384167</string>
 
 </resources>

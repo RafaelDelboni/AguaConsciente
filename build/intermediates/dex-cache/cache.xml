@@ -30,18 +30,18 @@
         <dex dex="/Users/rafaeldelboni/AndroidStudioProjects/AguaConsciente/app/build/intermediates/pre-dexed/debug/classes-5399f86789522b39c4bec7fdb773ddee6566bce0.jar" />
     </item>
     <item
-        jar="/Users/rafaeldelboni/AndroidStudioProjects/AguaConsciente/app/build/intermediates/exploded-aar/com.jpardogo.materialtabstrip/library/1.0.9/classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="ed2ab55be78d5d54ac9060d70d65a4573ae3d2ec">
-        <dex dex="/Users/rafaeldelboni/AndroidStudioProjects/AguaConsciente/app/build/intermediates/pre-dexed/debug/classes-da2156640654ac9c53a3c5c19f6ccd1c85942ae7.jar" />
-    </item>
-    <item
         jar="/Users/rafaeldelboni/.gradle/caches/modules-2/files-2.1/com.github.PhilJay/MPAndroidChart/v2.0.7/6e39b199dbf51a39f3bea5f976fdd5f66aaf77e1/MPAndroidChart-v2.0.7.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="6e39b199dbf51a39f3bea5f976fdd5f66aaf77e1">
         <dex dex="/Users/rafaeldelboni/AndroidStudioProjects/AguaConsciente/app/build/intermediates/pre-dexed/debug/MPAndroidChart-v2.0.7-5d8753246ee8dbd75b018293672a7e3e706875be.jar" />
+    </item>
+    <item
+        jar="/Users/rafaeldelboni/AndroidStudioProjects/AguaConsciente/app/build/intermediates/exploded-aar/com.jpardogo.materialtabstrip/library/1.0.9/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="ed2ab55be78d5d54ac9060d70d65a4573ae3d2ec">
+        <dex dex="/Users/rafaeldelboni/AndroidStudioProjects/AguaConsciente/app/build/intermediates/pre-dexed/debug/classes-da2156640654ac9c53a3c5c19f6ccd1c85942ae7.jar" />
     </item>
     <item
         jar="/Users/rafaeldelboni/AndroidStudioProjects/AguaConsciente/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/6.5.87/classes.jar"
