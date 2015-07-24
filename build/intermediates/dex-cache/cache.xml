@@ -16,18 +16,18 @@
         <dex dex="/Users/rafaeldelboni/AndroidStudioProjects/AguaConsciente/app/build/intermediates/pre-dexed/debug/library-2.4.0-b34bc485dfa08eeddc121a9a8b3641dead1f8ded.jar" />
     </item>
     <item
-        jar="/Users/rafaeldelboni/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/21.0.3/support-annotations-21.0.3.jar"
+        jar="/Users/rafaeldelboni/AndroidStudioProjects/AguaConsciente/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/classes.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
-        <dex dex="/Users/rafaeldelboni/AndroidStudioProjects/AguaConsciente/app/build/intermediates/pre-dexed/debug/support-annotations-21.0.3-d91c99e6a5827b2c59e49ec4fab7c0fe03890ca8.jar" />
+        sha1="4e86306289ace4aa0cfec44a05ed2b410d36989d">
+        <dex dex="/Users/rafaeldelboni/AndroidStudioProjects/AguaConsciente/app/build/intermediates/pre-dexed/debug/classes-43fa96eeea936c8f95b6384fd2eba577d7d17e24.jar" />
     </item>
     <item
-        jar="/Users/rafaeldelboni/AndroidStudioProjects/AguaConsciente/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/classes.jar"
+        jar="/Users/rafaeldelboni/AndroidStudioProjects/AguaConsciente/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/classes.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
-        <dex dex="/Users/rafaeldelboni/AndroidStudioProjects/AguaConsciente/app/build/intermediates/pre-dexed/debug/classes-5399f86789522b39c4bec7fdb773ddee6566bce0.jar" />
+        sha1="d84409890828e07d344a3b9b1da545dba9897b51">
+        <dex dex="/Users/rafaeldelboni/AndroidStudioProjects/AguaConsciente/app/build/intermediates/pre-dexed/debug/classes-f1a9ddb951abcf3247a537dba99e6e4adb12b6ac.jar" />
     </item>
     <item
         jar="/Users/rafaeldelboni/.gradle/caches/modules-2/files-2.1/com.github.PhilJay/MPAndroidChart/v2.0.7/6e39b199dbf51a39f3bea5f976fdd5f66aaf77e1/MPAndroidChart-v2.0.7.jar"
@@ -65,18 +65,18 @@
         <dex dex="/Users/rafaeldelboni/AndroidStudioProjects/AguaConsciente/app/build/intermediates/pre-dexed/debug/classes-11f5c54474b76d60b43f38ec9cb0021daebc6a04.jar" />
     </item>
     <item
-        jar="/Users/rafaeldelboni/AndroidStudioProjects/AguaConsciente/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/classes.jar"
+        jar="/Users/rafaeldelboni/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/22.0.0/support-annotations-22.0.0.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
-        <dex dex="/Users/rafaeldelboni/AndroidStudioProjects/AguaConsciente/app/build/intermediates/pre-dexed/debug/classes-13ca3d42d6095fdc9db1f0d8a64e414274dc7cf9.jar" />
+        sha1="685d0b2c590447e85284ed84712cb363ba04eff8">
+        <dex dex="/Users/rafaeldelboni/AndroidStudioProjects/AguaConsciente/app/build/intermediates/pre-dexed/debug/support-annotations-22.0.0-068af418d4147b8c8a5dcce71093b8f7de545f93.jar" />
     </item>
     <item
-        jar="/Users/rafaeldelboni/AndroidStudioProjects/AguaConsciente/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/libs/internal_impl-21.0.3.jar"
+        jar="/Users/rafaeldelboni/AndroidStudioProjects/AguaConsciente/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/libs/internal_impl-22.0.0.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
-        <dex dex="/Users/rafaeldelboni/AndroidStudioProjects/AguaConsciente/app/build/intermediates/pre-dexed/debug/internal_impl-21.0.3-219e5ca39055993a5b6893d32eafb24208d5afb8.jar" />
+        sha1="b5b92f469d515a13d778900f6d50c03d12f35504">
+        <dex dex="/Users/rafaeldelboni/AndroidStudioProjects/AguaConsciente/app/build/intermediates/pre-dexed/debug/internal_impl-22.0.0-c5803f2fffcc3199e203d78315aca6c1cd774fc3.jar" />
     </item>
 
 </items>

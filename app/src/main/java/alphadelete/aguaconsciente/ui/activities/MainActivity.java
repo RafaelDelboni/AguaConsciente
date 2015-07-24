@@ -1,14 +1,9 @@
 package alphadelete.aguaconsciente.ui.activities;
 
 import android.os.Bundle;
-import android.provider.Settings;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdSize;
-import com.google.android.gms.ads.AdView;
 
 import java.util.List;
 
@@ -36,21 +31,7 @@ public class MainActivity extends BaseActivity {
         toolbar.setPopupTheme(R.style.ThemeOverlay_AppCompat_Light);
         if (toolbar != null) {
             setSupportActionBar(toolbar);
-            // Set Toolbar Logo
-            // getSupportActionBar().setLogo(R.mipmap.ic_launcher);
         }
-
-        // Load the ad in the MainActivity class
-        AdView mAdView = (AdView) findViewById(R.id.adView);
-        //mAdView.setAdUnitId(getString(R.string.banner_ad_unit_id));
-        //mAdView.setAdSize(AdSize.BANNER);
-
-        AdRequest adRequest = new AdRequest.Builder()
-            .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)       // Emulador
-            .addTestDevice("8362B5B2455F170536B52033BEFECA0E") // Test phone MotoX
-            .build();
-        mAdView.loadAd(adRequest);
-        System.out.println("Ad ID: " + mAdView.getAdUnitId());
 
         // Set the MainActivity title
         this.setTitle(R.string.app_name);

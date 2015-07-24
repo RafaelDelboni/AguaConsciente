@@ -5,7 +5,10 @@
     <string name="about_title_dev">Developer</string>
     <string name="about_author_dev">AlphaDelete</string>
     <string name="about_content_dev">
-        If you have any questions, feedback, comments or suggestions, please get in touch:
+        This is a OpenSource project if you want to contribute or just check the code come here:
+        \n\nhttps://github.com/alphadelete
+
+        \n\nIf you have any questions, feedback, comments or suggestions, please get in touch:
 
         \n\nhttp://www.twitter.com/alphadelete
         \n\nalphadelete@gmail.com
