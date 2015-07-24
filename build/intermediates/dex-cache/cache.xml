@@ -44,13 +44,6 @@
         <dex dex="/Users/rafaeldelboni/AndroidStudioProjects/AguaConsciente/app/build/intermediates/pre-dexed/debug/classes-da2156640654ac9c53a3c5c19f6ccd1c85942ae7.jar" />
     </item>
     <item
-        jar="/Users/rafaeldelboni/AndroidStudioProjects/AguaConsciente/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/6.5.87/classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="dd9247ea0fabe8ee479638c4b4a23e93752be256">
-        <dex dex="/Users/rafaeldelboni/AndroidStudioProjects/AguaConsciente/app/build/intermediates/pre-dexed/debug/classes-fe8f16452e66bddb17c28ee0a3f20aa09fcae7cf.jar" />
-    </item>
-    <item
         jar="/Users/rafaeldelboni/AndroidStudioProjects/AguaConsciente/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/21.0.3/classes.jar"
         jumboMode="false"
         revision="21.1.2"
